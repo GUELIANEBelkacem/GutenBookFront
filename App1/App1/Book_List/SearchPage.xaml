@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+            x:Class="App1.Book_List.SearchPage"
+             Title="Search">
+  <!--Pages can be added as references or inline-->
+
+    <ContentPage.Content>
+
+        <StackLayout >
+            <ScrollView>
+                <StackLayout>
+                    <StackLayout Orientation="Vertical" BackgroundColor="#2196F3" Margin="20" VerticalOptions="Start" HorizontalOptions="Center" IsClippedToBounds="True">
+                <StackLayout Orientation="Horizontal" x:Name="segments" BackgroundColor="#2196F3" VerticalOptions="Start" HorizontalOptions="Center"  ></StackLayout>
+                <SearchBar Placeholder="Search..."
+                            CancelButtonColor="#2196F3"
+                            PlaceholderColor="#2196F3"
+                            TextColor="#2196F3"
+                            BackgroundColor="White"
+                          
+                            HorizontalTextAlignment="Center"
+                            FontSize="Medium"
+                            FontAttributes="Italic" 
+                           SearchButtonPressed="SearchBar_SearchButtonPressed"
+                           TextChanged="SearchBar_TextChanged"/>   
+                
+            </StackLayout>
+           
+            <Label Text="Results:" FontSize="Large" HorizontalOptions="Start" x:Name="resultlabel"/>
+               
+            <flv:FlowListView FlowColumnCount="3" SeparatorVisibility="Default" HasUnevenRows="True" x:Name="mylist" VerticalOptions="Start">
+                <flv:FlowListView.FlowColumnTemplate>
+
+                    <DataTemplate>
+                        <StackLayout Orientation="Vertical" Spacing="20" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="200">
+                            <Frame IsClippedToBounds="True" HeightRequest="130" WidthRequest="130" HorizontalOptions="Center" Margin="5,0,5,0">
+                                <Image Source="{Binding ImageSource}" Aspect="AspectFill" ></Image>
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding ClickCommand}"
+                                          CommandParameter="{Binding HRef}" />
+                                        </Frame.GestureRecognizers>
+                            </Frame>
+                            <Label Text="{Binding Name}" HorizontalOptions="Center" VerticalOptions="End" LineBreakMode="TailTruncation" Margin="5,3,5,7"></Label>
+                        </StackLayout>
+                    </DataTemplate>
+                </flv:FlowListView.FlowColumnTemplate>
+
+            </flv:FlowListView>
+                   
+                    <Label Text="Recommandations:" FontSize="Large" HorizontalOptions="Start" x:Name="recommandationlabel"/>
+                    
+            <flv:FlowListView FlowColumnCount="3" SeparatorVisibility="Default" HasUnevenRows="True" x:Name="myrlist"  VerticalOptions="End">
+                <flv:FlowListView.FlowColumnTemplate>
+
+                    <DataTemplate>
+                        <StackLayout Orientation="Vertical" Spacing="20" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="200">
+                            <Frame IsClippedToBounds="True" HeightRequest="130" WidthRequest="130" HorizontalOptions="Center" Margin="5,0,5,0">
+                                <Image Source="{Binding ImageSource}" Aspect="AspectFill" ></Image>
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding ClickCommand}"
+                                          CommandParameter="{Binding HRef}" />
+                                        </Frame.GestureRecognizers>
+                                    </Frame>
+                            <Label Text="{Binding Name}" HorizontalOptions="Center" VerticalOptions="End" LineBreakMode="TailTruncation" Margin="5,3,5,7"></Label>
+                        </StackLayout>
+                    </DataTemplate>
+                </flv:FlowListView.FlowColumnTemplate>
+
+            </flv:FlowListView>
+                    
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+
+    </ContentPage.Content>
+
+</ContentPage>

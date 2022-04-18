@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Book_List.WelcomePage"
+             BackgroundColor="#2196F3">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to GutenBooks!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" 
+                   FontSize="Large"
+                   TextColor="White"/>
+
+            <Button Text="Start Searching!" Clicked="Button_Clicked" VerticalOptions="EndAndExpand" BackgroundColor="#1476c4"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
